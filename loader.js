@@ -25,9 +25,6 @@ $(function(){
 	 */
 	fn.load = function(url, params, success, uriNotChange){
 		var cthis = $(this);
-		if(config.showLoaderCover){
-			loadingCover();
-		}
 		$.ajax({url:url, headers:{isFragment: true}, data: params, dataType: "html"}).done(function(html){
 			if($.support.fragments && !Boolean(uriNotChange)){
 				if(location.pathname !== url){
@@ -41,9 +38,7 @@ $(function(){
 			}
 			cthis.empty().append(html);
 		}).always(function(){
-			if(config.showLoaderCover){
-				loadingCover.hide();
-			}
+			
 		});
 	}
 	
